@@ -149,7 +149,7 @@ body {
   gap: 10px;
   margin-bottom: 15px;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -173,7 +173,7 @@ body {
 }
 
 .user-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -182,7 +182,7 @@ body {
 
 .user-role {
   font-size: 11px;
-  opacity: 0.7;
+  opacity: 0.8;
   text-transform: capitalize;
 }
 
@@ -224,8 +224,10 @@ body {
    HEADER - FIJO ARRIBA
    ============================================ */
 .top-header {
-  background: white;
-  padding: 15px 30px;
+  /*background: rgba(255, 255, 255, 0.5);*/
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 15px 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -236,10 +238,10 @@ body {
 }
 
 .header-title h1 {
-  font-size: 22px;
-  color: #1a1a2e;
+  font-size: 25px;
+  color: #ffffff;
   margin: 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .header-actions {
@@ -249,9 +251,9 @@ body {
 }
 
 .date {
-  color: #666;
+  color: #000000;
   font-size: 14px;
-  padding: 5px 12px;
+  padding: 10px 15px;
   background: #f0f2f5;
   border-radius: 20px;
 }
@@ -526,3 +528,26 @@ body {
     display: none;
   }
 }
+
+/*Icono Logout*/
+/* ============================================
+/* Icono de salir / logout */
+.icono-salir {
+  width: 45px;
+  height: 45px;
+  display: block;
+  margin: 0 auto;           /* Centra horizontalmente */
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+/* Efecto hover */
+.icono-salir:hover {
+  transform: translateX(2px);
+}
+
+
+/*.icono-negocio-header{
+  width: 40px;
+  height: 40px;
+}*/
