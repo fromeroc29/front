@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import './Auth.css';
+import passwordicon from '../../iconos/password.svg';
+import usericon from '../../iconos/nameuser.svg';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -44,7 +46,10 @@ function LoginPage() {
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
+            <div className="label-icon-group">
+            <img src={usericon} alt="usuario" className="input-icon" />
             <label>Usuario</label>
+            </div>
             <input
               type="text"
               value={username}
@@ -55,7 +60,23 @@ function LoginPage() {
             />
           </div>
 
-          <div className="form-group">
+
+<div className="form-group">
+  <div className="label-icon-group">
+    <img src={passwordicon} alt="contraseña" className="input-icon" />
+    <label>Contraseña</label>
+  </div>
+  <input
+    type="password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    placeholder="Ingresa tu contraseña"
+    required
+    disabled={loading}
+  />
+</div>
+          {/*<div className="form-group">
+            <img src={passwordicon}/>
             <label>Contraseña</label>
             <input
               type="password"
@@ -65,7 +86,7 @@ function LoginPage() {
               required
               disabled={loading}
             />
-          </div>
+          </div>*/}
 
           <div className="demo-buttons">
             <button type="button" onClick={fillDemoUser} className="demo-btn">

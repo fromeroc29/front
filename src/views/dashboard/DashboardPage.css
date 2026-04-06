@@ -206,3 +206,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+.icono-negocio-header{
+  width: 60px;
+  height: 60px;
+}
+
+
+
+.welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Centra todo el grupo */
+  gap: 20px;
+  background: linear-gradient(135deg, #d1d7dd 0%, #e9ecef 100%);
+  padding: 10px 15px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.welcome-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  opacity: 0.8;
+}

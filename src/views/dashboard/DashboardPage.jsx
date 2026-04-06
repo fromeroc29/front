@@ -1,6 +1,8 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import './DashboardPage.css';
+import toro from '../../iconos/torucho.png';
+import aguila from '../../iconos/aguilucho.png';
 
 function DashboardPage() {
   const { user } = useAuth();
@@ -22,8 +24,12 @@ function DashboardPage() {
     <div className="dashboard">
       {/* Bienvenida */}
       <div className="welcome-section">
-        <h2>¡Bienvenido, {user?.nombre || user?.username}! 👋</h2>
-        <p>Aquí está el resumen de tu negocio hoy</p>
+        <img src={aguila} alt="aguila" title="Autopartes del Norte" draggable="false" className="welcome-icon" />
+        <div>
+            <h2>¡Bienvenido, {user?.nombre || user?.username}!</h2>
+            <p>Aquí está el resumen de tu negocio hoy</p>
+        </div>
+        <img src={toro} alt="toro" title="Autopartes 3 Hermanos" draggable="false" className="welcome-icon" />
       </div>
 
       {/* Tarjetas de estadísticas */}

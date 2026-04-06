@@ -3,6 +3,10 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import './MainLayout.css';
 
+import salirIcono from '../iconos/salida.png';
+
+
+
 function MainLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { user, logout } = useAuth();
@@ -48,6 +52,36 @@ function MainLayout({ children }) {
           </button>
         </div>
 
+        <div className="sidebar-footer">
+          <div className="user-info">
+            <div className="user-avatar">
+              {user?.username?.charAt(0).toUpperCase() || 'U'}
+            </div>
+            {sidebarOpen && (
+              <div className="user-details">
+                <span className="user-name">{user?.nombre || user?.username}</span>
+                <span className="user-role">{user?.rol || 'usuario'}</span>
+              </div>
+            )}
+          </div>
+
+          <img
+           src={salirIcono}
+           alt="Salir del sistema"
+           title="Cerrar sesión"
+           draggable="false"
+           className="icono-salir"
+           onClick={handleLogout}
+           />
+
+          {/*{sidebarOpen && (
+            
+            <button onClick={handleLogout} className="logout-btn">
+              🚪 Salir
+            </button>
+          )}*/}
+        </div>
+
         <nav className="sidebar-nav">
           {filteredMenu.map((item) => (
             <Link
@@ -61,7 +95,7 @@ function MainLayout({ children }) {
           ))}
         </nav>
 
-        <div className="sidebar-footer">
+        {/*<div className="sidebar-footer">
           <div className="user-info">
             <div className="user-avatar">
               {user?.username?.charAt(0).toUpperCase() || 'U'}
@@ -75,18 +109,34 @@ function MainLayout({ children }) {
           </div>
           {sidebarOpen && (
             <button onClick={handleLogout} className="logout-btn">
-              🚪 Cerrar Sesión
+              🚪 Salir
             </button>
           )}
-        </div>
+        </div>*/}
       </aside>
 
       {/* Contenido principal */}
       <div className="main-container">
         {/* Header fijo */}
+        
         <header className="top-header">
+          
           <div className="header-title">
-            <h1>{getPageTitle(location.pathname)}</h1>
+            {/*<table>
+            <td>
+          <img
+           src={toro}
+           alt="bussines"
+           className="icono-negocio-header"
+           />
+             
+
+            </td>
+            <td>*/}
+                <h1>{getPageTitle(location.pathname)}</h1>
+            {/*</td>
+            </table>*/}
+            
           </div>
           <div className="header-actions">
             <span className="date">{new Date().toLocaleDateString('es-MX')}</span>
