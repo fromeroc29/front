@@ -1,20 +1,20 @@
+// services/api.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1';
-
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: 'http://127.0.0.1:8000', // Tu backend
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error('API Error:', error.response?.data || error.message);
-    return Promise.reject(error);
+// Interceptor para añadir token de autenticación si lo usas
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
-);
+  return config;
+});
 
 export default api;

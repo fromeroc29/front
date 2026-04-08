@@ -65,14 +65,14 @@ function MainLayout({ children }) {
             )}
           </div>
 
-          <img
+          {/*<img
            src={salirIcono}
            alt="Salir del sistema"
            title="Cerrar sesión"
            draggable="false"
            className="icono-salir"
            onClick={handleLogout}
-           />
+           />*/}
 
           {/*{sidebarOpen && (
             
@@ -139,12 +139,21 @@ function MainLayout({ children }) {
             
           </div>
           <div className="header-actions">
-            <span className="date">{new Date().toLocaleDateString('es-MX')}</span>
+                      <img
+           src={salirIcono}
+           alt="Salir del sistema"
+           title="Cerrar sesión"
+           draggable="false"
+           className="icono-salir"
+           onClick={handleLogout}
+           />
+            {/*<span className="date">{new Date().toLocaleDateString('es-MX')}</span>
+            
             {!sidebarOpen && (
               <button onClick={handleLogout} className="mobile-logout">
                 🚪
               </button>
-            )}
+            )}*/}
           </div>
         </header>
 

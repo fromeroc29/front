@@ -1,6 +1,8 @@
 import React from 'react';
+import update from '../../iconos/crud/edit_list.svg';
+import delet from '../../iconos/crud/delete_list.svg';
 
-function MarcaList({ marcas, onDelete }) {
+function MarcaList({ marcas, onDelete, onEdit }) {
   if (marcas.length === 0) {
     return <div className="empty-message">No hay marcas registradas</div>;
   }
@@ -26,12 +28,35 @@ function MarcaList({ marcas, onDelete }) {
             <td>{marca.pais_origen || '-'}</td>
             <td>{marca.activo ? '✅ Sí' : '❌ No'}</td>
             <td>
-              <button 
+              {/*<button 
+                className="btn-edit"  // ← Nuevo estilo
+                onClick={() => onEdit(marca)}  // ← Llamar a onEdit con la marca completa
+                style={{marginRight: '5px'}}
+              >
+                ✏️ Editar
+              </button>*/}
+              <img
+                src={update}
+                alt="Editar"
+                title="Editar Marca"
+                draggable="false"
+                onClick={() => onEdit(marca)}
+              /*onClick={handleLogout}*/
+              />
+              {/*<button 
                 className="btn-danger"
                 onClick={() => onDelete(marca.id_marca, marca.nombre)}
               >
-                Eliminar
-              </button>
+                🗑️ Eliminar
+              </button>*/}
+              <img
+                src={delet}
+                alt="Eliminar"
+                title="Eliminar Marca"
+                draggable="false"
+                onClick={() => onDelete(marca.id_marca, marca.nombre)}
+              /*onClick={handleLogout}*/
+              />
             </td>
           </tr>
         ))}
