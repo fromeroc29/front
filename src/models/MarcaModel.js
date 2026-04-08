@@ -13,15 +13,22 @@ class MarcaModel {
     return this.nombre.trim().length > 0;
   }
 
+
   toJSON() {
-    return {
-      nombre: this.nombre,
-      nombre_oficial: this.nombre_oficial,
-      pais_origen: this.pais_origen,
-      activo: this.activo,
-      notas: this.notas
-    };
+  const jsonData = {
+    nombre: this.nombre,
+    nombre_oficial: this.nombre_oficial,
+    pais_origen: this.pais_origen,
+     //activo: this.activo,
+  };
+  
+  // Solo incluir notas si tiene contenido
+  if (this.notas && this.notas.trim() !== '') {
+    jsonData.notas = this.notas;
   }
+  
+  return jsonData;
+}
 
   get displayName() {
     return `${this.nombre} (${this.pais_origen || 'País no especificado'})`;
